@@ -1,4 +1,4 @@
 var youAreAFunction = function() {
-    var yo = "HALLELUJAH"
+    var yo = "NO U"
     console.log(yo);
 }
