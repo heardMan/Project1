@@ -74,7 +74,27 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h3>My Google Maps Demo</h3>
+                <form class="">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Number">
+                        </div>
+                        <div class="col">
+                            <input type="date" class="form-control" placeholder="Number">
+                        </div>
+
+                        <div class="col">
+                            <button type="button" class="btn btn-dark">Search</button>
+                        </div>
+                    </div>
+                </form>
+
+                <h3>Currente Request</h3>
+
                 <!--The div element for the map -->
                 <div id="map"></div>
                 <!-- /#wrapper -->
@@ -93,25 +113,24 @@
                     crossorigin="anonymous"></script>
 
 
-    <!-- bootstrap -->
-    <script type="text/javascript" src="./assets/js/main.js"></script>
-    <script type="text/javascript" src="./assets/js/map.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg&callback=initMap">
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
-        authDomain: "kangarookarpool.firebaseapp.com",
-        databaseURL: "https://kangarookarpool.firebaseio.com",
-        projectId: "kangarookarpool",
-        storageBucket: "kangarookarpool.appspot.com",
-        messagingSenderId: "94940851528"
-      };
-      firebase.initializeApp(config);
-    </script>
+                <!-- bootstrap -->
+                <script type="text/javascript" src="./assets/js/main.js"></script>
+                <script type="text/javascript" src="./assets/js/map.js"></script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg&callback=initMap">
+                </script>
+                <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+                <script>
+                    // Initialize Firebase
+                    var config = {
+                        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
+                        authDomain: "kangarookarpool.firebaseapp.com",
+                        databaseURL: "https://kangarookarpool.firebaseio.com",
+                        projectId: "kangarookarpool",
+                        storageBucket: "kangarookarpool.appspot.com",
+                        messagingSenderId: "94940851528"
+                    };
+                    firebase.initializeApp(config);
+                </script>
 
 </body>
 
