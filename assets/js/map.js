@@ -2,15 +2,15 @@
 // Initialize and add the map
 var initMap = function (position) {
     if (position) {
-        // The location of Uluru
+        // The location of defaultPos
         var latitude = position.coords.latitude
         var longitude = position.coords.longitude
-        var uluru = { lat: latitude, lng: longitude };
-        // The map, centered at Uluru
+        var defaultPos = { lat: latitude, lng: longitude };
+        // The map, centered at defaultPos
         var map = new google.maps.Map(
-            document.getElementById('map'), { zoom: 4, center: uluru });
-        // The marker, positioned at Uluru
-        //var marker = new google.maps.Marker({ position: uluru, map: map });
+            document.getElementById('map'), { zoom: 4, center: defaultPos });
+        // The marker, positioned at defaultPos
+        //var marker = new google.maps.Marker({ position: defaultPos, map: map });
 
         var contentString = '<div id="content">' +
             '<div id="siteNotice">' +
@@ -27,7 +27,7 @@ var initMap = function (position) {
         });
 
         var marker = new google.maps.Marker({
-            position: uluru,
+            position: defaultPos,
             map: map,
             title: 'Sam'
         });
@@ -36,7 +36,7 @@ var initMap = function (position) {
         });
 
 
-        map.setCenter(pos);
+        map.setCenter(marker.position);
     }
 
 }
