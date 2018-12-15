@@ -74,29 +74,37 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <form class="">
+                <form class="hide" id="form">
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Name">
+                            <label for="exampleFormControlInput1">Name</label>
+                            <input type="text" class="form-control" placeholder="">
+
                         </div>
 
                         <div class="col">
-                            <input type="number" class="form-control" placeholder="Number">
-                        </div>
-                        <div class="col">
-                            <input type="date" class="form-control" placeholder="Number">
+                            <label for="exampleFormControlInput1">Phone Number</label>
+                            <input type="number" class="form-control" placeholder="">
+
                         </div>
 
                         <div class="col">
-                            <button type="button" class="btn btn-dark">Search</button>
+                            <label for="exampleFormControlInput1"> Departure Date</label>
+                            <input type="date" class="form-control" placeholder="">
+
+                        </div>
+
+                        <div class="col">
+
+                            <button type="button" class="btn btn-dark ">Submit</button>
                         </div>
                     </div>
                 </form>
 
-                <h3>Currente Request</h3>
+
 
                 <!--The div element for the map -->
-                <div id="map"></div>
+                <div id="map" class="mt-4"></div>
                 <!-- /#wrapper -->
 
 
