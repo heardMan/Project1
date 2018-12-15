@@ -11,11 +11,16 @@ $("#pull").click(function () {
 function writeNewPost(name, date, contact) {
     var newPostKey = firebase.database().ref().child('posts').push().key;
 
+    var userLat = window.localStorage.getItem("userLat");
+    var userLng = window.localStorage.getItem("userLng");
+
     var postData = {
         postKey: newPostKey,
         userName: name,
         departureDate: date,
         contactInfo: contact,
+        lat: userLat,
+        lng: userLng
     };
     var newPostKey = firebase.database().ref().child('posts').push().key;
     var updates = {};
