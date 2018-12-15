@@ -10,9 +10,35 @@ var initMap = function (position) {
         var map = new google.maps.Map(
             document.getElementById('map'), { zoom: 4, center: uluru });
         // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({ position: uluru, map: map });
+        //var marker = new google.maps.Marker({ position: uluru, map: map });
+
+        var contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Sam</h1>' +
+            '<div id="bodyContent">' +
+            '<p><b>To LAX</b>, I need a ride!!!!!.</p>' +
+            '<button>Call Me</button>'
+        '</div>' +
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            title: 'Sam'
+        });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker);
+        });
+
+
+        map.setCenter(pos);
     }
-    
+
 }
 // Default map to show
 // Initialize and add the map
