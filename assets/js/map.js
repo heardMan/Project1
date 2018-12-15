@@ -1,15 +1,33 @@
- // Initialize and add the map
- function initMap(position) {
-    // The location of Uluru
-    var latitude = position.coords.latitude 
-    var longitude = position.coords.longitude
-    var uluru = {lat: latitude, lng: longitude};
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
-  }
 
-  navigator.geolocation.getCurrentPosition(initMap);
-  
+// Initialize and add the map
+var initMap = function (position) {
+    if (position) {
+        // The location of Uluru
+        var latitude = position.coords.latitude
+        var longitude = position.coords.longitude
+        var uluru = { lat: latitude, lng: longitude };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), { zoom: 4, center: uluru });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+    }
+    
+}
+// Default map to show
+// Initialize and add the map
+var defaultMap = function () {
+    // The location of lax
+    var latitude = 34.0522;
+    var longitude = -118.2437;
+    var lax = { lat: latitude, lng: longitude };
+    // The map, centered at lax
+    var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: lax });
+    // The marker, positioned at lax
+    var marker = new google.maps.Marker({ position: lax, map: map });
+}
+$(document).ready(function () {
+    defaultMap();
+    navigator.geolocation.getCurrentPosition(initMap);
+});
