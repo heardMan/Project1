@@ -35,7 +35,8 @@ var initMap = function (position) {
             infowindow.open(map, marker);
         });
 
-
+        window.localStorage.setItem("userLat",defaultPos.lat);
+        window.localStorage.setItem("userLng",defaultPos.lng);
         map.setCenter(marker.position);
     }
 
