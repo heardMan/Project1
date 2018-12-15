@@ -1,3 +1,4 @@
+
 // Initialize and add the map
 var initMap = function (position) {
     if (position) {
