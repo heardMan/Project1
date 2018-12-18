@@ -10,7 +10,7 @@ var initMap = function (position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         //set coordinates for user position
-        var userPosition = {lat: latitude, lng: longitude};
+        var userPosition = { lat: latitude, lng: longitude };
         //create new google Map and set center to user's location
         var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: userPosition });
         // creat a new marker indicating the the users location
@@ -30,10 +30,22 @@ var initMap = function (position) {
     return map;
 }
 
-function newMarker(pos, map, content) {
+function newMarker(pos, map, post) {
     //create and set infowindow Content
-    var infowindow = new google.maps.InfoWindow({content});
+    //var infowindow = new google.maps.InfoWindow({content});
+
+    var contentString = `<div class="card horizontal">
+        <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
+        <div class="card-action">
+        <a href="#">Call Me</a> </div></div></div>`;
     //create and set marker
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+  
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -56,9 +68,9 @@ function addPostsToMap(map) {
         // create position object
         var position = { lat: latitude, lng: longitude };
         // set marker content
-        var content = "<div><p>Name: " + post.userName + "</p><p>Date: " + post.departureDate + "</p><p>Contact: " + post.contactInfo + "</p></div>";
+        //var content = "<div><p>Name: " + post.userName + "</p><p>Date: " + post.departureDate + "</p><p>Contact: " + post.contactInfo + "</p></div>";
         //create marker and add to map
-        newMarker(position, map, content);
+        newMarker(position, map, post);
     });
 
 }
@@ -69,6 +81,4 @@ $(document).ready(function () {
     initMap();
     //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
-
-    
 });
