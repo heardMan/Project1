@@ -40,12 +40,12 @@ function newMarker(pos, map, post) {
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
         <div class="card-action">
-        <a href="#">Call Me</a> </div></div></div>`;
+        <a href="tel:+${post.contactInfo}">Call Me</a> </div></div></div>`;
     //create and set marker
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
-  
+
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -81,4 +81,7 @@ $(document).ready(function () {
     initMap();
     //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
+
+
 });
+    
