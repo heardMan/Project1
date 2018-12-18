@@ -1,60 +1,86 @@
+// DEFINE FUNCTIONS
 
-// Initialize and add the map
+//create a Map
 var initMap = function (position) {
+    //set coordinates for LAX map marker
+    var lax = { lat: 34.0522, lng: -118.2437 };
+    //handle GPS coordinates from geolocation function if they exist
     if (position) {
-        // The location of defaultPos
-        var latitude = position.coords.latitude
-        var longitude = position.coords.longitude
-        var defaultPos = { lat: latitude, lng: longitude };
-        // The map, centered at defaultPos
-        var map = new google.maps.Map(
-            document.getElementById('map'), { zoom: 4, center: defaultPos });
-        // The marker, positioned at defaultPos
-        //var marker = new google.maps.Marker({ position: defaultPos, map: map });
-
-        var contentString = '<div id="content">' +
-            '<div id="siteNotice">' +
-            '</div>' +
-            '<h1 id="firstHeading" class="firstHeading">Sam</h1>' +
-            '<div id="bodyContent">' +
-            '<p><b>To LAX</b>, I need a ride!!!!!.</p>' +
-            '<button>Call Me</button>'
-        '</div>' +
-            '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-
-        var marker = new google.maps.Marker({
-            position: defaultPos,
-            map: map,
-            title: 'Sam'
-        });
-        marker.addListener('click', function () {
-            infowindow.open(map, marker);
-        });
-
-        window.localStorage.setItem("userLat",defaultPos.lat);
-        window.localStorage.setItem("userLng",defaultPos.lng);
-        map.setCenter(marker.position);
+        //assign user ltaitude and longitude to variables
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        //set coordinates for user position
+        var userPosition = { lat: latitude, lng: longitude };
+        //create new google Map and set center to user's location
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: userPosition });
+        // creat a new marker indicating the the users location
+        newMarker(userPosition, map, "You are Here");
+        //write user Latitude to local storage
+        window.localStorage.setItem("userLat", latitude);
+        // write user Longitude to local storage
+        window.localStorage.setItem("userLng", longitude);
+    } else {
+        //create new google Map and set center to LAX's location
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: lax });
     }
+    // add LAX marker
+    newMarker(lax, map, "LAX Here");
+    // add markers for posts in the database
+    addPostsToMap(map);
+    return map;
+}
+
+function newMarker(pos, map, post) {
+    //create and set infowindow Content
+    //var infowindow = new google.maps.InfoWindow({content});
+
+    var contentString = `<div class="card horizontal">
+        <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
+        <div class="card-action">
+        <a href="#">Call Me</a> </div></div></div>`;
+    //create and set marker
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+        position: pos,
+        map: map,
+    });
+    //add click listener for each marker
+    marker.addListener('click', function () {
+        //add infowindow to marker
+        infowindow.open(map, marker);
+    });
+}
+
+function addPostsToMap(map) {
+    //open database connection
+    firebase.database().ref().child("posts").on("child_added", function (snapshot) {
+        var post = snapshot.val();
+        //convert coordinate from string to float
+        var latitude = parseFloat(post.lat);
+        //convert coordinate from string to float
+        var longitude = parseFloat(post.lng);
+        // create position object
+        var position = { lat: latitude, lng: longitude };
+        // set marker content
+        //var content = "<div><p>Name: " + post.userName + "</p><p>Date: " + post.departureDate + "</p><p>Contact: " + post.contactInfo + "</p></div>";
+        //create marker and add to map
+        newMarker(position, map, post);
+    });
 
 }
-// Default map to show
-// Initialize and add the map
-var defaultMap = function () {
-    // The location of lax
-    var latitude = 34.0522;
-    var longitude = -118.2437;
-    var lax = { lat: latitude, lng: longitude };
-    // The map, centered at lax
-    var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 4, center: lax });
-    // The marker, positioned at lax
-    var marker = new google.maps.Marker({ position: lax, map: map });
-}
+
+//RUN FUNCTIONS
 $(document).ready(function () {
-    defaultMap();
+    //display default map
+    initMap();
+    //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
+
+
 });
