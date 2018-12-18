@@ -45,7 +45,7 @@ function newMarker(pos, map, post) {
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
-
+  
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -81,6 +81,4 @@ $(document).ready(function () {
     initMap();
     //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
-
-
 });
