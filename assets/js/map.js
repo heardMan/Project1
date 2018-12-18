@@ -1,5 +1,4 @@
 // DEFINE FUNCTIONS
-
 //create a Map
 var initMap = function (position) {
     //set coordinates for LAX map marker
@@ -29,23 +28,22 @@ var initMap = function (position) {
     addPostsToMap(map);
     return map;
 }
-
 function newMarker(pos, map, post) {
+    lastWindow = null;
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
-
+    console.log(`WABOOOO ${post.userName}`);
     var contentString = `<div class="card horizontal">
         <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
         <div class="card-action">
-        <a href="#">Call Me</a> </div></div></div>`;
+        <a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
     //create and set marker
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
-  
     var marker = new google.maps.Marker({
         position: pos,
         map: map,
@@ -53,10 +51,13 @@ function newMarker(pos, map, post) {
     //add click listener for each marker
     marker.addListener('click', function () {
         //add infowindow to marker
+        if(lastWindow) {
+            lastWindow.close()
+        };
         infowindow.open(map, marker);
+        lastWindow=infowindow
     });
 }
-
 function addPostsToMap(map) {
     //open database connection
     firebase.database().ref().child("posts").on("child_added", function (snapshot) {
@@ -72,9 +73,7 @@ function addPostsToMap(map) {
         //create marker and add to map
         newMarker(position, map, post);
     });
-
 }
-
 //RUN FUNCTIONS
 $(document).ready(function () {
     //display default map
