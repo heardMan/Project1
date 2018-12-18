@@ -33,14 +33,14 @@ var initMap = function (position) {
 function newMarker(pos, map, post) {
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
-
+    console.log(`WABOOOO ${post.userName}`);
     var contentString = `<div class="card horizontal">
         <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
         <div class="card-action">
-        <a href="tel:+${post.contactInfo}">Call Me</a> </div></div></div>`;
+        <a href="tel:+1${post.contactInfo}">Call Me</a> </div></div></div>`;
     //create and set marker
     var infowindow = new google.maps.InfoWindow({
         content: contentString
