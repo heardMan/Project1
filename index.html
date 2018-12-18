@@ -5,124 +5,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
+    <!-- font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/simple-sidebar.css" />
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- side Menu CSS -->
+    <!-- <link rel="stylesheet" href="./assets/css/simple-sidebar.css" /> -->
+    <!-- main Style Sheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <title>Carpool</title>
 </head>
 
 <body>
-
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="#menu-toggle" class="mr-3" id="menu-toggle"><i class="fas fa-bars"></i></a>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-
-    <div id="wrapper" class="toggled">
-
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Kangaroo Carpool
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="pull"> Post Request</a>
-                </li>
-                
+ <!-- navbar -->
+ <div class="navbar-fixed">
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <a href="#" id="menu-toggle" class=" blue"><i class="fas fa-bars"></i></a>
+            <a href="#!" class="brand-logo">Kangaroo Carpool</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Log-In</a></li>
+                <li><a class="new-post modal-trigger" href="#modal1">New Post</a></li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
+    </nav>
+</div>
+<!-- navbar -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <form class="hide" id="form">
+<!-- side Menu -->
+<ul id="slide-out" class="sidenav">
+    <li>
+        <a href="#!">
+            <div><i class="fas fa-bars transparent btn-flat btn-large" id="closeMenu"></i>Kangaroo Carpool</div>
+        </a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="new-post waves-effect waves-light modal-trigger" href="#modal1">Create Post</a>
+    </li>
+</ul>
+<!-- side Menu -->
+
+<!-- main Content Container -->
+<div class="container blue-grey lighten-3">
+    <!-- instructions Container -->
+    <div class="row">
+        <div class="col s12 ">
+                <div id="instructions" class="carousel carousel-slider">
+                        <div class="carousel-item blue white-text center-align" href="#one!">Welcome to Kangaroo Carpool the map below shows users intersted in carpooling to LAX on a certain date</div>
+                        <div class="carousel-item red white-text center-align" href="#two!">Select a Post to get more information and set up your carpool TODAY!</div>
+                        <div class="carousel-item orange white-text center-align" href="#three!">Dont see anything that fits your schedule? Create a post and let others know where and when you are going</div>
+                        <div class="carousel-item green white-text center-align" href="#four!">Did you know that you could save $$$ by forming a carpool</div>
+                    </div>
+        </div>
+    </div>
+    <!-- instructions Container -->
+    <!--map Container -->
+    <div class="row">
+        <div class="col s10 m-6 offset-s1">
+            <div id="map" class="z-depth-4"></div>
+            
+        </div>
+    </div>
+    <!--map Container -->
+
+
+
+</div>
+<!-- main Content Container -->
+
+<!-- new Post Modal/Form-->
+<div class="row">
+    <div class="col s12">
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <form id="form">
                     <div class="form-row">
-                        <div class="col">
+                        <div class="input-field col s12">
                             <label for="exampleFormControlInput1">Name</label>
-                            <input id="newPostName" type="text" class="form-control" placeholder="">
-
+                            <input id="newPostName" type="text" class="form-control" placeholder="What is Your Name?">
+                        </div>
+                        <div class="input-field col s12">
+                            <select>
+                                <option value="" disabled selected class="grey-text grey lighten-2">Can you drive?</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                            <label>Drive or Ride</label>
                         </div>
 
-                        <div class="col">
+                        <div class="input-field col s12">
+                            <label for="exampleFormControlInput1">Origin</label>
+                            <input id="newPostOrigin" type="text" class="form-control" placeholder="Where are you Coming From?">
+                        </div>
+                        <div class="input-field col s12">
                             <label for="exampleFormControlInput1">Phone Number</label>
-                            <input id="newPostPhone" type="number" class="form-control" placeholder="">
-
+                            <input id="newPostPhone" type="number" class="form-control" placeholder="How do you want people to contact you?">
                         </div>
-
-                        <div class="col">
+                        <div class="input-field col s12">
                             <label for="exampleFormControlInput1"> Departure Date</label>
-                            <input id="newPostDate" type="date" class="form-control" placeholder="">
-
+                            <input id="newPostDate" type="text" class="form-control datepicker" placeholder="When are you Leaving?">
                         </div>
 
-                        <div class="col">
-
-                            <button id="submitNewPost" type="button" class="btn btn-dark ">Submit</button>
-                        </div>
                     </div>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <a onclick="M.toast({html: 'Post Submitted'})" id="submitNewPost" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- new Post Modal-->
 
+<!-- google MAPs API -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg">
+</script><!-- &callback=initMap -->
+<!-- google MAPs API -->
 
-                <!--The div element for the map -->
-                <div id="map" class="mt-4"></div>
-                <!-- /#wrapper -->
-
-
-
-
-                <!-- bootstrap -->
-
-
-                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                    crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-                    crossorigin="anonymous"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-                    crossorigin="anonymous"></script>
-
-
-                <!-- bootstrap -->
-                <script type="text/javascript" src="./assets/js/main.js"></script>
-                <script type="text/javascript" src="./assets/js/map.js"></script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg&callback=initMap">
-                </script>
-                <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-                <script>
-                    // Initialize Firebase
-                    var config = {
-                        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
-                        authDomain: "kangarookarpool.firebaseapp.com",
-                        databaseURL: "https://kangarookarpool.firebaseio.com",
-                        projectId: "kangarookarpool",
-                        storageBucket: "kangarookarpool.appspot.com",
-                        messagingSenderId: "94940851528"
-                    };
-                    firebase.initializeApp(config);
-                </script>
-
+<!-- firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
+        authDomain: "kangarookarpool.firebaseapp.com",
+        databaseURL: "https://kangarookarpool.firebaseio.com",
+        projectId: "kangarookarpool",
+        storageBucket: "kangarookarpool.appspot.com",
+        messagingSenderId: "94940851528"
+    };
+    firebase.initializeApp(config);
+</script>
+<!-- firebase -->
+<script type="text/javascript" src="./assets/js/main.js"></script>
+<script type="text/javascript" src="./assets/js/map.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,27 @@
+.container{
+    margin-top: 2em;
+    width: 100%;
+    padding: 1em 0em 1em 0em;
+}
+
 #map {
-    height: 600px;  /* The height is 400 pixels */
-    width: 80%;  /* The width is the width of the web page */
-   }
-   .hide{
-       display: none;
-   }
+    height: 400px;
+    margin-bottom: 0;
+}
+
+#modal1 { 
+    width: 75% !important ;
+    height: 100% !important ;
+}
+
+#closeMenu{
+    margin: 0em 2em 0em -2em;
+    size: 2em !important;
+}
+
+#menu-toggle{
+    margin: 0em 1em 0em 1em;
+}
+#instructions{
+    height: 100px !important;
+}
