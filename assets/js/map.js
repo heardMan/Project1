@@ -40,7 +40,7 @@ function newMarker(pos, map, post) {
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
         <div class="card-action">
-        <a href="tel:+1${post.contactInfo}">Call Me</a> </div></div></div>`;
+        <a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
     //create and set marker
     var infowindow = new google.maps.InfoWindow({
         content: contentString
