@@ -1,5 +1,4 @@
 // DEFINE FUNCTIONS
-
 //create a Map
 var initMap = function (position) {
     //set coordinates for LAX map marker
@@ -29,8 +28,8 @@ var initMap = function (position) {
     addPostsToMap(map);
     return map;
 }
-
 function newMarker(pos, map, post) {
+    lastWindow = null;
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
     console.log(`WABOOOO ${post.userName}`);
@@ -53,10 +52,13 @@ function newMarker(pos, map, post) {
     //add click listener for each marker
     marker.addListener('click', function () {
         //add infowindow to marker
+        if(lastWindow) {
+            lastWindow.close()
+        };
         infowindow.open(map, marker);
+        lastWindow=infowindow
     });
 }
-
 function addPostsToMap(map) {
     //open database connection
     firebase.database().ref().child("posts").on("child_added", function (snapshot) {
@@ -72,16 +74,12 @@ function addPostsToMap(map) {
         //create marker and add to map
         newMarker(position, map, post);
     });
-
 }
-
 //RUN FUNCTIONS
 $(document).ready(function () {
     //display default map
     initMap();
     //display map centered ate user's location
     navigator.geolocation.getCurrentPosition(initMap);
-
-
 });
-    
+
