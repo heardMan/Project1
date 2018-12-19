@@ -40,9 +40,9 @@ function newMarker(pos, map, post) {
     if (post === "LAX") {
         var contentString = `<div class="card horizontal">
         <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
+        <img src="./assets/images/lax.jpg">
         </div>
-        <div class="card-stacked"> <div class="card-content"> <p> You are here</p> </div></div></div>`;
+        <div class="card-stacked"> <div class="card-content"> <p>LAX is here!</p> </div></div></div>`;
         //create and set marker
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -66,7 +66,7 @@ function newMarker(pos, map, post) {
         
         var contentString = `<div class="card horizontal">
         <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
+        <img src="./assets/images/user.png"">
         </div>
         <div class="card-stacked"> <div class="card-content"> <p> You are here</p> </div></div></div>`;
         //create and set marker
