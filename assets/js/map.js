@@ -23,7 +23,7 @@ var initMap = function (position) {
         var map = new google.maps.Map(document.getElementById('map'), { zoom: 10, center: lax });
     }
     // add LAX marker
-    newMarker(lax, map, "LAX Here");
+    newMarker(lax, map, "LAX");
     // add markers for posts in the database
     addPostsToMap(map);
     return map;
@@ -32,14 +32,33 @@ function newMarker(pos, map, post) {
     lastWindow = null;
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
-    console.log(`WABOOOO ${post.userName}`);
-    var contentString = `<div class="card horizontal">
+    if (post === "LAX"){
+        var contentString = `<div class="card horizontal">
+        <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked"> <div class="card-content"> <p> You are here</p> </div></div></div>`;
+    } else {
+        var contentString = `<div class="card horizontal">
         <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
-        <div class="card-action">
-        <a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
+        <div class="card-action">`;
+        if(isMobileDevice()){
+            contentString += `<a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
+        }else{
+            //console.log(post.contactInfo+"WE HERE");
+            var getNumber = Number(post.contactInfo);
+            //console.log(`fuck ${getNumber}`);
+            contentString += `<a class="waves-effect waves-light modal-trigger" id="phone-button" href="#modal2" value="${getNumber}">Call Me</a>`;
+            var number = $("#phone-button").attr('value');
+
+            $("#phone-number").text(number);
+        }
+        
+    }
+    
     //create and set marker
     var infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -75,6 +94,11 @@ function addPostsToMap(map) {
         newMarker(position, map, post);
     });
 }
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
+
 //RUN FUNCTIONS
 $(document).ready(function () {
     //display default map

@@ -104,9 +104,17 @@ $(document).ready(function () {
 
     // register new-post on click -- opens form modal
     $(".new-post").click(function () {
-        $('.modal').modal();
+        $('#modal1').modal();
         $("#wrapper").toggleClass("toggled");
         $('.sidenav').sidenav("close");
+    });
+
+    $("body").on("click", "#phone-button", function () {
+        console.log("wellfuck");
+        $('#model2').modal();
+        $("#wrapper").toggleClass("toggled");
+        console.log($(this).attr("value")+"welp");
+        $("#phone-number").text($(this).attr("value"));
     });
 
     // initiate create new posts submit button and logic
