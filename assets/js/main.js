@@ -1,5 +1,6 @@
 //DEFINE FUNCTIONS
 //write post to database
+M.AutoInit();
 function writeNewPost(name, date, contact, latitude, longitude) {
     //create new child key
     var newPostKey = firebase.database().ref().child('posts').push().key;

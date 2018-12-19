@@ -1,27 +1,41 @@
-.container{
-    margin-top: 2em;
-    width: 100%;
-    padding: 1em 0em 1em 0em;
-}
 
 #map {
-    height: 400px;
-    margin-bottom: 0;
+    height: 130vh;  /* The height is 400 pixels */
+    width: 130%;  /* The width is the width of the web page */
+    margin-left:  -5em;
+    margin-top:  -5em;
+   }
+#fullScreen{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    top:0;
+    z-index: -1;
+}
+.mt{
+    margin-top: 3em;
+}
+.makeBig{
+    min-height: 50%;
+}
+.toggle{
+    margin-left: 1px;
+    margin: 1em 0 0 1em;
+}
+.addToggle{
+    position: fixed;
+    right: 0;
+    margin: 1em 1em 0 0;
+}
+.rides{
+    width: 30em;
+    position: absolute;
+    padding: 1em;
+    bottom: 0;
+}
+.maxHieght{
+    height: 75vh;
+    overflow-y: auto;
 }
 
-#modal1 { 
-    width: 75% !important ;
-    height: 100% !important ;
-}
-
-#closeMenu{
-    margin: 0em 2em 0em -2em;
-    size: 2em !important;
-}
-
-#menu-toggle{
-    margin: 0em 1em 0em 1em;
-}
-#instructions{
-    height: 100px !important;
-}
