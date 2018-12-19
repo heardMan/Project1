@@ -37,12 +37,57 @@ function newMarker(pos, map, post) {
     //var infowindow = new google.maps.InfoWindow({content});
     var distance = findDistance(userLat, userLng, pos.lat, pos.lng);
     console.log(distance);
-    if (post === "LAX"){
+    if (post === "LAX") {
         var contentString = `<div class="card horizontal">
         <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
         </div>
         <div class="card-stacked"> <div class="card-content"> <p> You are here</p> </div></div></div>`;
+        //create and set marker
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var userMarker = "./assets/images/userMarker1.png";
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            icon: userMarker
+        });
+        //add click listener for each marker
+        marker.addListener('click', function () {
+            //add infowindow to marker
+            if (lastWindow) {
+                lastWindow.close()
+            };
+            infowindow.open(map, marker);
+            lastWindow = infowindow
+        });
+    } else if (post === "You are Here") {
+        
+        var contentString = `<div class="card horizontal">
+        <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+        </div>
+        <div class="card-stacked"> <div class="card-content"> <p> You are here</p> </div></div></div>`;
+        //create and set marker
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var userMarker = "./assets/images/userMarker1.png";
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            icon: userMarker
+        });
+        //add click listener for each marker
+        marker.addListener('click', function () {
+            //add infowindow to marker
+            if (lastWindow) {
+                lastWindow.close()
+            };
+            infowindow.open(map, marker);
+            lastWindow = infowindow
+        });
     } else {
         var contentString = `<div class="card horizontal">
         <div class="card-image">
@@ -50,9 +95,27 @@ function newMarker(pos, map, post) {
         </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
         <div class="card-action">`;
-        if(isMobileDevice()){
+        //create and set marker
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+        });
+        //add click listener for each marker
+        marker.addListener('click', function () {
+            //add infowindow to marker
+            if (lastWindow) {
+                lastWindow.close()
+            };
+            infowindow.open(map, marker);
+            lastWindow = infowindow
+        });
+        if (isMobileDevice()) {
             contentString += `<a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
-        }else{
+        } else {
             //console.log(post.contactInfo+"WE HERE");
             var getNumber = Number(post.contactInfo);
             //console.log(`fuck ${getNumber}`);
@@ -61,27 +124,10 @@ function newMarker(pos, map, post) {
 
             $("#phone-number").text(number);
         }
-        
-    }
-    
-    //create and set marker
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
 
-    var marker = new google.maps.Marker({
-        position: pos,
-        map: map,
-    });
-    //add click listener for each marker
-    marker.addListener('click', function () {
-        //add infowindow to marker
-        if(lastWindow) {
-            lastWindow.close()
-        };
-        infowindow.open(map, marker);
-        lastWindow=infowindow
-    });
+    }
+
+
 }
 function addPostsToMap(map) {
     //open database connection
