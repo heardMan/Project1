@@ -26,9 +26,9 @@
 </head>
 
 <body>
- <!-- navbar -->
+    <!-- navbar -->
 
- <ul id="slide-out" class="sidenav">
+    <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
 
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -127,36 +127,46 @@
         </div>
     </div>
 
+    <!-- phone modal -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span id="phone-number">Phone number test</span>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
 
 
     <!--The div element for the map -->
     <div id="fullScreen">
         <div id="map"></div>
     </div>
-<!-- new Post Modal-->
+    <!-- new Post Modal-->
 
-<!-- google MAPs API -->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg">
-</script><!-- &callback=initMap -->
-<!-- google MAPs API -->
+    <!-- google MAPs API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmx7yVmK_G-p82UqJU_7qe57TGOGkmuwg">
+    </script><!-- &callback=initMap -->
+    <!-- google MAPs API -->
 
-<!-- firebase -->
-<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-<script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
-        authDomain: "kangarookarpool.firebaseapp.com",
-        databaseURL: "https://kangarookarpool.firebaseio.com",
-        projectId: "kangarookarpool",
-        storageBucket: "kangarookarpool.appspot.com",
-        messagingSenderId: "94940851528"
-    };
-    firebase.initializeApp(config);
-</script>
-<!-- firebase -->
-<script type="text/javascript" src="./assets/js/main.js"></script>
-<script type="text/javascript" src="./assets/js/map.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDPnurbRg4ZdRtQJJ9SMyuU1tdMB0u-UVM",
+            authDomain: "kangarookarpool.firebaseapp.com",
+            databaseURL: "https://kangarookarpool.firebaseio.com",
+            projectId: "kangarookarpool",
+            storageBucket: "kangarookarpool.appspot.com",
+            messagingSenderId: "94940851528"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- firebase -->
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="./assets/js/map.js"></script>
 </body>
 
 </html>
