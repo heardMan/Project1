@@ -12,6 +12,7 @@
         crossorigin="anonymous">
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -26,108 +27,112 @@
 
 <body>
  <!-- navbar -->
- <div class="navbar-fixed">
-    <nav class="blue">
-        <div class="nav-wrapper">
-            <a href="#" id="menu-toggle" class=" blue"><i class="fas fa-bars"></i></a>
-            <a href="#!" class="brand-logo">Kangaroo Carpool</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Log-In</a></li>
-                <li><a class="new-post modal-trigger" href="#modal1">New Post</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-<!-- navbar -->
 
-<!-- side Menu -->
-<ul id="slide-out" class="sidenav">
-    <li>
-        <a href="#!">
-            <div><i class="fas fa-bars transparent btn-flat btn-large" id="closeMenu"></i>Kangaroo Carpool</div>
-        </a>
-    </li>
-    <li>
-        <div class="divider"></div>
-    </li>
-    <li>
-        <a class="new-post waves-effect waves-light modal-trigger" href="#modal1">Create Post</a>
-    </li>
-</ul>
-<!-- side Menu -->
+ <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
 
-<!-- main Content Container -->
-<div class="container blue-grey lighten-3">
-    <!-- instructions Container -->
-    <div class="row">
-        <div class="col s12 ">
-                <div id="instructions" class="carousel carousel-slider">
-                        <div class="carousel-item blue white-text center-align" href="#one!">Welcome to Kangaroo Carpool the map below shows users intersted in carpooling to LAX on a certain date</div>
-                        <div class="carousel-item red white-text center-align" href="#two!">Select a Post to get more information and set up your carpool TODAY!</div>
-                        <div class="carousel-item orange white-text center-align" href="#three!">Dont see anything that fits your schedule? Create a post and let others know where and when you are going</div>
-                        <div class="carousel-item green white-text center-align" href="#four!">Did you know that you could save $$$ by forming a carpool</div>
-                    </div>
-        </div>
-    </div>
-    <!-- instructions Container -->
-    <!--map Container -->
-    <div class="row">
-        <div class="col s10 m-6 offset-s1">
-            <div id="map" class="z-depth-4"></div>
-            
-        </div>
-    </div>
-    <!--map Container -->
-
-
-
-</div>
-<!-- main Content Container -->
-
-<!-- new Post Modal/Form-->
-<div class="row">
-    <div class="col s12">
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <form id="form">
-                    <div class="form-row">
-                        <div class="input-field col s12">
-                            <label for="exampleFormControlInput1">Name</label>
-                            <input id="newPostName" type="text" class="form-control" placeholder="What is Your Name?">
-                        </div>
-                        <div class="input-field col s12">
-                            <select>
-                                <option value="" disabled selected class="grey-text grey lighten-2">Can you drive?</option>
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
-                            <label>Drive or Ride</label>
-                        </div>
-
-                        <div class="input-field col s12">
-                            <label for="exampleFormControlInput1">Origin</label>
-                            <input id="newPostOrigin" type="text" class="form-control" placeholder="Where are you Coming From?">
-                        </div>
-                        <div class="input-field col s12">
-                            <label for="exampleFormControlInput1">Phone Number</label>
-                            <input id="newPostPhone" type="number" class="form-control" placeholder="How do you want people to contact you?">
-                        </div>
-                        <div class="input-field col s12">
-                            <label for="exampleFormControlInput1"> Departure Date</label>
-                            <input id="newPostDate" type="text" class="form-control datepicker" placeholder="When are you Leaving?">
-                        </div>
-
-                    </div>
-                </form>
+                <a href="#user"><img class="circle" src="https://bootdey.com/img/Content/avatar/avatar7.png"></a>
+                <a href="#name"><span class=" name">John Doe</span></a>
+                <a href="#email"><span class=" email">jdandturk@gmail.com</span></a>
             </div>
-            <div class="modal-footer">
-                <a onclick="M.toast({html: 'Post Submitted'})" id="submitNewPost" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+        </li>
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+
+    <a class="btn-floating btn-large waves-effect waves-light #212121 grey darken-4 sidenav-trigger toggle" data-target="slide-out"><i
+            class="material-icons">dehaze</i></a>
+
+    <a href="#modal1" class="btn-floating btn-large waves-effect waves-light #212121 grey darken-4 addToggle modal-trigger"><i
+            class="material-icons">add</i></a>
+
+
+
+
+    <div class="rides">
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">directions_car</i>
+                    Available Rides
+                    <span class="new badge #212121 grey darken-4">2</span></div>
+                <div class="collapsible-body #f5f5f5 grey lighten-4 ">
+                    <div class="maxHieght">
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="https://www.eharmony.co.uk/dating-advice/wp-content/uploads/2011/04/profilephotos-960x640.jpg">
+                                        <span class="card-title">Hermione Granger</span>
+                                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">call</i></a>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>Going to LAX anyone want to Carpool?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="https://cdn.vox-cdn.com/thumbor/EX077x6Di-rPggR16DgeCAIGjZs=/0x0:5551x3674/1200x675/filters:focal(2053x1385:2941x2273)/cdn.vox-cdn.com/uploads/chorus_image/image/59843307/GettyImages_607402370.0.jpg">
+                                        <span class="card-title">Han Solo</span>
+                                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">call</i></a>
+                                    </div>
+                                    <div class="card-content">
+                                        <p>Going to LAX anyone want to Carpool?</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <!-- modal--->
+    <div id="modal1" class="modal makeBig">
+        <div class="modal-content">
+            <h4>Request A Ride!</h4>
+            <p>Please fill out the form</p>
+            <div class="input-field col s12 mt">
+                <i class="material-icons prefix">contacts</i>
+                <input type="text" id="autocomplete-input" class="name">
+                <label for="autocomplete-input">Name</label>
             </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">edit_location</i>
+                <input type="text" id="autocomplete-input" class="name">
+                <label for="autocomplete-input">Location</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">date_range</i>
+                <input type="text" class="datepicker">
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
         </div>
     </div>
-</div>
 
+
+
+    <!--The div element for the map -->
+    <div id="fullScreen">
+        <div id="map"></div>
+    </div>
 <!-- new Post Modal-->
 
 <!-- google MAPs API -->
