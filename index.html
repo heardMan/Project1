@@ -61,9 +61,9 @@
                 <div class="collapsible-header">
                     <i class="material-icons">directions_car</i>
                     Available Rides
-                    <span class="new badge #212121 grey darken-4">2</span></div>
+                    <span id="availableRides"class="new badge #212121 grey darken-4">2</span></div>
                 <div class="collapsible-body #f5f5f5 grey lighten-4 ">
-                    <div class="maxHieght">
+                    <div class="maxHieght" id="newRides">
                         <div class="row">
                             <div class="col s12 m12">
                                 <div class="card">
@@ -137,6 +137,15 @@
         </div>
     </div>
 
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span id="phonenumber">Phone number test</span>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
 
 
     <!--The div element for the map -->
@@ -165,6 +174,7 @@
         firebase.initializeApp(config);
     </script>
     <!-- firebase -->
+    <script type="text/javascript" src="./assets/js/ride.js"></script>
     <script type="text/javascript" src="./assets/js/main.js"></script>
     <script type="text/javascript" src="./assets/js/map.js"></script>
 </body>

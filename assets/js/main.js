@@ -110,11 +110,17 @@ $(document).ready(function () {
     });
 
     $("body").on("click", "#phone-button", function () {
-        console.log("wellfuck");
         $('#model2').modal();
         $("#wrapper").toggleClass("toggled");
         console.log($(this).attr("value")+"welp");
         $("#phone-number").text($(this).attr("value"));
+    });
+
+    $("body").on("click", "#call", function () {
+        $('#model3').modal();
+        $("#wrapper").toggleClass("toggled");
+        console.log($(this).attr("value")+"welp");
+        $("#phonenumber").text($(this).attr("date-type"));
     });
 
     // initiate create new posts submit button and logic
