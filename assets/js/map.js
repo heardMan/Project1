@@ -1,6 +1,17 @@
 // DEFINE FUNCTIONS
 var mapquestApi = "uCMlG4qD5AT9EioBGopVPkleuHOpvIZA";
+var googleApi = "AIzaSyAVVVJuN6J7vbVsMlJP5IBU_mGZXWXVUuQ";
 //create a Map
+var getDistance = function (userLat, userLng, placeLat, placeLng) {
+    var user = new google.maps.LatLng(userLat, userLng);
+    var place = new google.maps.LatLng(placeLat, placeLng);
+    var distance = google.maps.geometry.spherical.computeDistanceBetween(user, place);
+    
+    var mile = distance * 0.00062137;
+    console.log(mile + "mi");
+    return Math.floor(mile * 100) / 100;
+}
+getDistance();
 var initMap = function (position) {
     //set coordinates for LAX map marker
     var lax = { lat: 34.0522, lng: -118.2437 };
@@ -33,6 +44,8 @@ function newMarker(pos, map, post) {
     lastWindow = null;
     var userLat = window.localStorage.getItem("userLat");
     var userLng = window.localStorage.getItem("userLng");
+    var distance = getDistance(userLat, userLng, pos.lat, pos.lng);
+    console.log(distance);
     
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
@@ -41,7 +54,7 @@ function newMarker(pos, map, post) {
         <div class="card-image">
         <img src="./assets/images/lax.jpg">
         </div>
-        <div class="card-stacked"> <div class="card-content"> <p>LAX is here!</p> </div></div></div>`;
+        <div class="card-stacked"> <div class="card-content"> <p>LAX is here!</p> <p>Distance: ${distance} mi</p> </div></div></div>`;
         //create and set marker
         var infowindow = new google.maps.InfoWindow({
             content: contentString
@@ -93,7 +106,7 @@ function newMarker(pos, map, post) {
         <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
         </div>
-        <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> </div>
+        <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> <p>Distance: ${distance} mi</p></div>
         <div class="card-action">`;
         if (isMobileDevice()) {
             contentString += `<a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
@@ -128,6 +141,7 @@ function newMarker(pos, map, post) {
 
 
 }
+
 function addPostsToMap(map) {
     //open database connection
     firebase.database().ref().child("posts").on("child_added", function (snapshot) {
