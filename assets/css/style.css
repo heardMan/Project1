@@ -62,7 +62,7 @@
         bottom: 0;
     }
     .maxHieght{
-        height: 65vh;
+        max-height: 90%;
         overflow-y: auto;
     }
 }
