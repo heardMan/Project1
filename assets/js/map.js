@@ -1,5 +1,5 @@
 // DEFINE FUNCTIONS
-var mapquestApi = "oJemIAUX2z50LZNB78Pv7gEpOJ6GJ0ZE";
+var mapquestApi = "uCMlG4qD5AT9EioBGopVPkleuHOpvIZA";
 //create a Map
 var initMap = function (position) {
     //set coordinates for LAX map marker
@@ -33,10 +33,9 @@ function newMarker(pos, map, post) {
     lastWindow = null;
     var userLat = window.localStorage.getItem("userLat");
     var userLng = window.localStorage.getItem("userLng");
+    
     //create and set infowindow Content
     //var infowindow = new google.maps.InfoWindow({content});
-    var distance = findDistance(userLat, userLng, pos.lat, pos.lng);
-    console.log(distance);
     if (post === "LAX") {
         var contentString = `<div class="card horizontal">
         <div class="card-image">
@@ -146,24 +145,6 @@ function addPostsToMap(map) {
     });
 }
 
-//find distance
-function findDistance(originLat, originLng, destLat, destLng) {
-    var distance = 0;
-    $.ajax({
-        url: "http://www.mapquestapi.com/directions/v2/route?key=" + mapquestApi + "&from=" + originLat + "," + originLng + "&to=" + destLat + "," + destLng,
-        type: "GET",
-        dataType: "json",
-        success: function (response) {
-            console.log(response);
-            distance = response.route.distance;
-            console.log("distance is " + distance);
-            return distance;
-        },
-        error: function (request, error) {
-            alert("Request: " + JSON.stringify(request));
-        }
-    })
-}
 
 function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);

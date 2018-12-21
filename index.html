@@ -107,23 +107,29 @@
             <p>Please fill out the form</p>
             <div class="input-field col s12 mt">
                 <i class="material-icons prefix">contacts</i>
-                <input type="text" id="autocomplete-input" class="name">
+                <input id="newPostName" type="text" id="autocomplete-input" class="name">
                 <label for="autocomplete-input">Name</label>
+            </div>
+            
+            <div class="input-field col s12">
+                <i class="material-icons prefix">call</i>
+                <input id="newPostPhone" type="text" id="autocomplete-input" class="name">
+                <label for="autocomplete-input">Phone Number</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">edit_location</i>
-                <input type="text" id="autocomplete-input" class="name">
+                <input id="newPostOrigin" type="text" id="autocomplete-input" class="name">
                 <label for="autocomplete-input">Location</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">date_range</i>
-                <input type="text" class="datepicker">
+                <input id="newPostDate" type="text" class="datepicker">
 
             </div>
 
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+            <a href="#!" id="submitNewPost" class="modal-close waves-effect waves-green btn-flat">Submit</a>
         </div>
     </div>
 
