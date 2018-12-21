@@ -43,3 +43,25 @@
     position: fixed;
 }
 
+@media (max-width: 576px) { 
+    .makeBig{
+        min-height: 80%;
+        min-width: 90%;
+    }
+
+    .addToggle{
+        position: fixed;
+        right: 0;
+        margin: 46.5em 1.2em 0 0;
+    }
+    .rides{
+        width: 23em;
+        position: fixed;
+        padding: 1em;
+        bottom: 0;
+    }
+    .maxHieght{
+        height: 65vh;
+        overflow-y: auto;
+    }
+}
