@@ -11,13 +11,14 @@
     position: fixed;
     overflow: hidden;
     top:0;
-    z-index: -1;
+    z-index: -10;
 }
 .mt{
     margin-top: 3em;
 }
 .makeBig{
-    min-height: 50%;
+    min-height: 60%;
+    min-width: 75%;
 }
 .toggle{
     margin-left: 1px;
@@ -45,7 +46,7 @@
 
 @media (max-width: 576px) { 
     .makeBig{
-        min-height: 80%;
+        min-height: 70%;
         min-width: 90%;
     }
 
@@ -53,16 +54,19 @@
         position: fixed;
         right: 0;
         bottom: 0;
-        margin: 0 1em 2em 0;
+        margin: 0 1em 7em 0;
+        z-index: -5;
     }
     .rides{
-        width: 80%;
+        width: 100%;
         position: fixed;
         padding: 1em;
         bottom: 0;
     }
     .maxHieght{
-        max-height: 90%;
+        max-height: 65vh;
         overflow-y: auto;
+        z-index: 20;
     }
+  
 }
