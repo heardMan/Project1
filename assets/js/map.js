@@ -11,7 +11,7 @@ var getDistance = function (userLat, userLng, placeLat, placeLng) {
     console.log(mile + "mi");
     return Math.floor(mile * 100) / 100;
 }
-getDistance();
+//getDistance();
 var initMap = function (position) {
     //set coordinates for LAX map marker
     //33.9416, -118.4085
