@@ -14,7 +14,8 @@ var getDistance = function (userLat, userLng, placeLat, placeLng) {
 getDistance();
 var initMap = function (position) {
     //set coordinates for LAX map marker
-    var lax = { lat: 34.0522, lng: -118.2437 };
+    //33.931947,-118.235117
+    var lax = { lat: 33.931947, lng: -118.235117 };
     //handle GPS coordinates from geolocation function if they exist
     if (position) {
         //assign user ltaitude and longitude to variables
