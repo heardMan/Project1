@@ -12,16 +12,15 @@ firebase.database().ref().child("posts").on("child_added", function (snapshot) {
           <img src="https://articles-images.sftcdn.net/wp-content/uploads/sites/3/2016/01/wallpaper-for-facebook-profile-photo.jpg">
           <span class="card-title black-text text-darken-2">`+ name + `</span>`;
     if (isMobileDevice()) {
-        postContent += `<a id ="call" href="tel:1${phone}"class="btn-floating halfway-fab waves-effect waves-light red call"><i class="material-icons">Call Me</a> </div></div></div>`;
+        postContent += `<a id ="call" href="tel:1${phone}"class="btn-floating halfway-fab waves-effect waves-light red call"><i class="material-icons">call</i></a></div>`;
     } else {
-        postContent += `<a id ="call" href="#modal3" date-type = "${phone}" class="btn-floating halfway-fab waves-effect waves-light red call  modal-trigger"><i class="material-icons">call</i></a>`
+        postContent += `<a id ="call" href="#modal3" date-type = "${phone}" class="btn-floating halfway-fab waves-effect waves-light red call  modal-trigger"><i class="material-icons">call</i></a></div>`
         var number = $("#call").attr("date-type");
 
         $("#phonenumber").text(number);
     }
     
-    postContent += `</div>
-        <div class="card-content">
+    postContent += `<div class="card-content">
           <p> Departure Date: `+ date + `</p>
         </div>
       </div>
