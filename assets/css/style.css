@@ -52,10 +52,11 @@
     .addToggle{
         position: fixed;
         right: 0;
-        margin: 46.5em 1.2em 0 0;
+        bottom: 0;
+        margin: 0 1em 2em 0;
     }
     .rides{
-        width: 23em;
+        width: 80%;
         position: fixed;
         padding: 1em;
         bottom: 0;
