@@ -32,57 +32,39 @@ function createNewPost() {
         var postDate = $("#newPostDate").val();
         var postOrigin = $("#newPostOrigin").val();
         var postContact = $("#newPostPhone").val();
-        if (!postOrigin) {
-            //set latitude and longitude values if post origin is left blank
-            var latitude = window.localStorage.getItem("userLat");
-            var longitude = window.localStorage.getItem("userLng");
-        } else {
-            //set latitude and longitude values from API
-            var latitude = response.results[0].locations[0].latLng.lat;
-            var longitude = response.results[0].locations[0].latLng.lng;
-
-        }
-        //write new post to database
-        writeNewPost(postName, postDate, postContact, latitude, longitude);
-        console.log(latitude);
-        console.log(longitude);
         //retrieve coordinates for origin location if not blank
-        // $.ajax({
-        //     //call map quest api for coordinates
-        //     url: 'https://www.mapquestapi.com/geocoding/v1/address?key=oJemIAUX2z50LZNB78Pv7gEpOJ6GJ0ZE&inFormat=kvp&outFormat=json&location=' + postOrigin + '&thumbMaps=false',
-        //     type: 'GET',
-        //     dataType: 'json',
-        //     success: function (response) {
-
-        //         if (!postOrigin) {
-        //             //set latitude and longitude values if post origin is left blank
-        //             var latitude = window.localStorage.getItem("userLat");
-        //             var longitude = window.localStorage.getItem("userLng");
-        //         } else {
-        //             //set latitude and longitude values from API
-        //             var latitude = response.results[0].locations[0].latLng.lat;
-        //             var longitude = response.results[0].locations[0].latLng.lng;
-
-        //         }
-        //         //write new post to database
-        //         writeNewPost(postName, postDate, postContact, latitude, longitude);
-        //         console.log(latitude);
-        //         console.log(longitude);
-
-        //     },
-        //     error: function (request, error) {
-        //         alert("Request: " + JSON.stringify(request));
-        //     }
-        // });
+        $.ajax({
+            //call map quest api for coordinates
+            url: 'https://www.mapquestapi.com/geocoding/v1/address?key=dHGTCXH5vqbtxlJhCj22GQLU5CPzVQ2n&inFormat=kvp&outFormat=json&location=' + postOrigin + '&thumbMaps=false',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (!postOrigin) {
+                    //set latitude and longitude values if post origin is left blank
+                    var latitude = window.localStorage.getItem("userLat");
+                    var longitude = window.localStorage.getItem("userLng");
+                } else {
+                    //set latitude and longitude values from API
+                    var latitude = response.results[0].locations[0].latLng.lat;
+                    var longitude = response.results[0].locations[0].latLng.lng;
+                }
+                //write new post to database
+                writeNewPost(postName, postDate, postContact, latitude, longitude);
+                console.log(latitude);
+                console.log(longitude);
+            },
+            error: function (request, error) {
+                alert("Request: " + JSON.stringify(request));
+            }
+        });
         //clear form inputs
         $("#newPostName").empty();
         $("#newPostDate").empty();
         $("#newPostOrigin").empty();
         $("#newPostPhone").empty();
-
     })
-
 }
+
  function nextCarouselSlide(){
      $('#instructions').click(function(){
         $('.carousel.carousel-slider').carousel("next");
