@@ -60,7 +60,7 @@ function newMarker(pos, map, post) {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        var userMarker = "./assets/images/userMarker1.png";
+        var userMarker = "./assets/images/blueMarker.svg";
         var marker = new google.maps.Marker({
             position: pos,
             map: map,
@@ -86,7 +86,7 @@ function newMarker(pos, map, post) {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        var userMarker = "./assets/images/userMarker1.png";
+        var userMarker = "./assets/images/blueMarker.svg";
         var marker = new google.maps.Marker({
             position: pos,
             map: map,
