@@ -110,7 +110,7 @@ function newMarker(pos, map, post) {
             contentString += `<a href="tel:1${post.contactInfo}">Call Me</a> </div></div></div>`;
         } else {
             //console.log(post.contactInfo+"WE HERE");
-            var getNumber = Number(post.contactInfo);
+            var getNumber = post.contactInfo;
             //console.log(`fuck ${getNumber}`);
             contentString += `<a class="waves-effect waves-light modal-trigger" id="phone-button" href="#modal2" value="${getNumber}">Call Me</a>`;
             var number = $("#phone-button").attr('value');
