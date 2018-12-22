@@ -11,7 +11,7 @@ var getDistance = function (userLat, userLng, placeLat, placeLng) {
     console.log(mile + "mi");
     return Math.floor(mile * 100) / 100;
 }
-getDistance();
+//getDistance();
 var initMap = function (position) {
     //set coordinates for LAX map marker
     //33.9416, -118.4085
@@ -60,7 +60,7 @@ function newMarker(pos, map, post) {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        var userMarker = "./assets/images/userMarker1.png";
+        var userMarker = "./assets/images/blueMarker.svg";
         var marker = new google.maps.Marker({
             position: pos,
             map: map,
@@ -86,7 +86,7 @@ function newMarker(pos, map, post) {
         var infowindow = new google.maps.InfoWindow({
             content: contentString
         });
-        var userMarker = "./assets/images/userMarker1.png";
+        var userMarker = "./assets/images/blueMarker.svg";
         var marker = new google.maps.Marker({
             position: pos,
             map: map,
@@ -104,9 +104,6 @@ function newMarker(pos, map, post) {
     } else {
         
         var contentString = `<div class="card horizontal">
-        <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
-        </div>
         <div class="card-stacked"> <div class="card-content"> <h4 class="header">${post.userName}</h4> <p>I am departing on ${post.departureDate} for LAX!!</p> <p>Distance: ${distance} mi</p></div>
         <div class="card-action">`;
         if (isMobileDevice()) {

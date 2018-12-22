@@ -37,3 +37,5 @@ firebase.database().ref().child("posts").on("child_added", function (snapshot) {
 });
 
 
+
+
