@@ -64,7 +64,9 @@
         bottom: 0;
     }
     .maxHieght{
+
         max-height: 65vh;
+
         overflow-y: auto;
         z-index: 20;
     }
