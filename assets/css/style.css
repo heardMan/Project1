@@ -44,6 +44,17 @@
     position: fixed;
 }
 
+#logo{
+    transform: scale(.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-left: -13.5em;
+    margin-top: -3em;
+    opacity: .4;
+   
+}
+
 @media (max-width: 576px) { 
     .makeBig{
         min-height: 70%;
